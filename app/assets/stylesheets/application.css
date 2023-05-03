@@ -13,3 +13,58 @@
  *= require_tree .
  *= require_self
  */
+ @import 'bootstrap/dist/css/bootstrap';
+body{
+    font-size: 16px;
+    background-color: lightgray;
+}
+
+.navbar{
+background-color: rgb(29, 30, 30) !important;
+}
+.nav-link , .navbar-brand{
+    color: white !important;
+}
+#logo{
+    font: size 1.7em;
+    font-weight: bold;
+}
+
+#home-container{
+    margin-top: 25px;
+}
+
+.jumbotron{
+    /* background-color: aqua !important; */
+    background-image: url('jorg-angeli-1tyuLfDOnG0-unsplash.jpg') ;
+    background-position: center ;
+    background-repeat: no-repeat ;
+    color: white !important;
+text-align: center;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+/* Other Classes for Page Styling */
+
+.display-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    justify-content: space-between;
+}
+
+.background-color-blue{
+    background-color: aqua;
+    padding: 10px;
+}

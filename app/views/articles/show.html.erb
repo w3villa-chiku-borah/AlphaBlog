@@ -1,3 +1,19 @@
 <h1>Showind article details</h1>
-<p><strong>Title: </strong> <%= @article.title %></p>
-<p><strong>Description: </strong> <%= @article.description %> </p>
+<div class="card text-center mt-4  shadow p-3 mb-5 bg-white rounded">
+  <div class="card-header font-italic">
+    by  chiku borah
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @article.title %></h5>
+    <p class="card-text"><%= truncate(@article.description, length: 100) %></p>
+    <div class="display-flex">
+  <%= link_to "view", article_path(@article.id),class: "btn btn-outline-primary mr-4" %>
+  <%= link_to "Edit", edit_article_path(@article.id),class: "btn btn-outline-success mr-4" %>
+  <%= button_to "Delete", article_path(@article.id),method: :delete ,class: "btn btn-outline-danger" %>
+  </div>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Created <%= time_ago_in_words(@article.created_at) %>,
+    edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
+  </div>
+</div>
