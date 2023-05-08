@@ -10,22 +10,29 @@
       <li class="nav-item active">
         <%= link_to "List article", articles_path, class: "nav-link" %>
       </li>
+      <li class="nav-item active">
+        <%= link_to "BLOGGER", users_path, class: "nav-link" %>
+      </li>
       <li class="nav-item">
         <%= link_to "Add new article", new_article_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+     
+      
+      <% if loggedin? %>
+      <li class="nav-item">
+       <%= link_to current_user.username, user_path(current_user),class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
+       <%= button_to "Log out", logout_path,method: :delete ,class: "btn btn-outline-danger" %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Log In", login_path, class: "nav-link" %>
+      </li>
+      <% end %>
+
+      <li class="nav-item">
+        <%= link_to "signup", signup_path, class: "nav-link" %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

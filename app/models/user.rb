@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+#before change is  user to save something in database before save the whole code
+before_save { self.email = email.downcase }
+
+
 has_many :articles
 
 validates :username ,presence: true,   
@@ -11,4 +15,6 @@ validates :email, presence: true,
                   length: { maximum: 105 },
                   format: { with: VALID_EMAIL_REGEX } 
 
+
+ has_secure_password
 end

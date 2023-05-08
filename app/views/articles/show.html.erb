@@ -1,15 +1,18 @@
 <h1>Showind article details</h1>
 <div class="card text-center mt-4  shadow p-3 mb-5 bg-white rounded">
   <div class="card-header font-italic">
-    by  chiku borah
+    by  <%= @article.user.username %>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <p class="card-text"><%= truncate(@article.description, length: 100) %></p>
     <div class="display-flex">
   <%= link_to "view", article_path(@article.id),class: "btn btn-outline-primary mr-4" %>
+ 
+ <% if loggedin? && @article.user == current_user %>
   <%= link_to "Edit", edit_article_path(@article.id),class: "btn btn-outline-success mr-4" %>
   <%= button_to "Delete", article_path(@article.id),method: :delete ,class: "btn btn-outline-danger" %>
+  <% end %>
   </div>
   </div>
   <div class="card-footer text-muted">
